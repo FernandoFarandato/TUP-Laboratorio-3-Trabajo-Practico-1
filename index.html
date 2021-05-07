@@ -138,30 +138,40 @@
         </div>
 
         <div
-          class="btn-toolbar container ml-1 botones--prendas"
-          role="toolbar"
-          aria-label="Toolbar with button groups"
+          class="btn-group ml-4"
+          role="group"
+          aria-label="Button group with nested dropdown"
         >
-          <div class="btn-group" role="group" aria-label="First group">
-            <button type="button" class="btn btn-secondary" id="remera">
-              Remeras
+          <div class="btn-group" role="group">
+            <button
+              id="btnGroupDrop1"
+              type="button"
+              class="btn btn-secondary dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Filtro
             </button>
-            <button type="button" class="btn btn-secondary" id="buzo">
-              Buzos
-            </button>
-            <button type="button" class="btn btn-secondary" id="pantalon">
-              Pantalones
-            </button>
-            <button type="button" class="btn btn-secondary" id="campera">
-              Camperas
-            </button>
-
-            <button type="button" class="btn btn-secondary" id="musculosa">
-              Musculosa
-            </button>
-            <button type="button" class="btn btn-secondary" id="todo">
-              Todos
-            </button>
+            <div
+              class="dropdown-menu botones--prendas"
+              aria-labelledby="btnGroupDrop1"
+            >
+              <button class="dropdown-item" id="todo" href="#">Todo</button>
+              <button class="dropdown-item" id="remera" href="#">
+                Remeras
+              </button>
+              <button class="dropdown-item" id="buzo" href="#">Buzo</button>
+              <button class="dropdown-item" id="pantalon" href="#">
+                Pantalon
+              </button>
+              <button class="dropdown-item" id="campera" href="#">
+                Campera
+              </button>
+              <button class="dropdown-item" id="musculosa" href="#">
+                Musculosa
+              </button>
+            </div>
           </div>
         </div>
       </div>
