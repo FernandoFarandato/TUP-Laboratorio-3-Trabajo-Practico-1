@@ -1,0 +1,51 @@
+/** @format */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: rgb(52, 58, 64);
+  background: linear-gradient(
+    180deg,
+    rgba(52, 58, 64, 1) 0%,
+    rgba(17, 81, 115, 1) 34%,
+    rgba(255, 215, 0, 1) 100%
+  );
+  height: 100%;
+}
+
+.pagina {
+  height: 100%;
+}
+
+.banner--titulo {
+  width: 100%;
+  background-color: #212529;
+  color: white;
+}
+
+.description {
+  min-height: 150px;
+}
+
+.img--card {
+  height: 450px;
+  width: 300px;
+  object-fit: cover;
+}
+
+.img--card--buzo {
+  object-position: 0% 55%;
+}
+
+.tarjeta {
+  min-height: 800px;
+}
+
+@media (min-width: 768px) and (max-width: 1340) {
+  .tarjeta {
+    min-height: 1000px;
+  }
+}

@@ -1,0 +1,245 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en" class="pagina">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./resources/css/style.css" />
+    <script defer src="./resources/js/script.js"></script>
+
+    <title>Hello, world!</title>
+  </head>
+  <body class="lead pagina">
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" href="#" id="home">Home</a>
+          <a class="nav-link active" href="#" id="ofertas">Ofertas</a>
+          <a class="nav-link active" href="#" id="solicitarProudctos"
+            >Solicitar producto</a
+          >
+          <a class="nav-link active" href="#" id="productos">Productos</a>
+          <a class="nav-link active" href="#" id="contacto">Contacto</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="home pagina">
+        <!-- Banner Titulo-->
+
+        <div class="container-fluid p-4 banner--titulo" style="width: 100%">
+          <h1 class="text-center display-1">Tienda la Utileria</h1>
+        </div>
+
+        <img
+          id="1"
+          src="./resources/images/home-banner.jpg"
+          class="img-fluid imagen--banner"
+          alt="Imagen Local"
+        />
+      </div>
+
+      <div class="ofertas pagina">
+        <div class="container-fluid my-4 p-4 banner--titulo">
+          <h1 class="text-center display-1">Ofertas</h1>
+        </div>
+      </div>
+
+      <div class="solicitarProudctos pagina">
+        <div class="container-fluid my-4 p-4 banner--titulo">
+          <h1 class="text-center display-1">
+            Encarga tu Productos Personalizado
+          </h1>
+        </div>
+        <div class="container">
+          <form class="m-4">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Correo Electronico</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="name@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Talle</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Tipo de Prenda</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Remera</option>
+                <option>Musculosa</option>
+                <option>Campera</option>
+                <option>Pantalones</option>
+                <option>Shorts</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1"
+                >Que quieres que contenga tu prenda?</label
+              >
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="productos pagina">
+        <div class="container-fluid my-4 p-4 banner--titulo">
+          <h1 class="text-center display-1">Productos</h1>
+        </div>
+
+        <div
+          class="btn-toolbar container ml-1 botones--prendas"
+          role="toolbar"
+          aria-label="Toolbar with button groups"
+        >
+          <div class="btn-group" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary" id="remera">
+              Remeras
+            </button>
+            <button type="button" class="btn btn-secondary" id="buzo">
+              Buzos
+            </button>
+            <button type="button" class="btn btn-secondary" id="pantalon">
+              Pantalones
+            </button>
+            <button type="button" class="btn btn-secondary" id="campera">
+              Camperas
+            </button>
+
+            <button type="button" class="btn btn-secondary" id="musculosa">
+              Musculosa
+            </button>
+            <button type="button" class="btn btn-secondary" id="todo">
+              Todos
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="contacto pagina">
+        <div class="container-fluid my-4 p-4 banner--titulo">
+          <h1 class="text-center display-1">Contacto</h1>
+        </div>
+
+        <div class="container-fluid m-0 p-0 pagina">
+          <!-- Input Form -->
+          <div class="container mt-4">
+            <form id="logInForm">
+              <div class="mb-3">
+                <label for="InputEmail" class="form-label"
+                  >Correo Electronico</label
+                >
+                <input
+                  type="email"
+                  class="form-control danger"
+                  id="InputEmail"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1"
+                  >Ingrese su mensaje. Gracias!</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="exampleCheck1"
+                />
+                <label class="form-check-label" for="exampleCheck1"
+                  >Check me out</label
+                >
+              </div>
+              <button class="btn btn-primary submit--button disabled">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">
+              Producto Agregado a tu carrito!
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
