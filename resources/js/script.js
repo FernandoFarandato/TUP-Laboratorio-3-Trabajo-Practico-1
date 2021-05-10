@@ -20,6 +20,7 @@ const ofertasSection = document.querySelector(".ofertas");
 const solicitarProudctosSection = document.querySelector(".solicitarProudctos");
 const productosSection = document.querySelector(".productos");
 let contenedorProductos;
+let contenedorOfertas;
 
 const contactoSection = document.querySelector(".contacto");
 
@@ -41,6 +42,7 @@ const products = [
     price: 5700,
     img: "buzo1-1.webp",
     imgSwitch: "buzo1-1.webp",
+    offer: false,
   },
   {
     title: "Buzo Kobato",
@@ -51,6 +53,7 @@ const products = [
     price: 5400,
     img: "buzo2-1.webp",
     imgSwitch: "buzo2-2.webp",
+    offer: true,
   },
   {
     title: "Buzo Oskar",
@@ -61,6 +64,7 @@ const products = [
     price: 4540,
     img: "buzo3-1.webp",
     imgSwitch: "buzo3-2.webp",
+    offer: false,
   },
   {
     title: "Remera Termica Liviana De Comprension",
@@ -71,6 +75,7 @@ const products = [
     price: 2900,
     img: "remera1-1.webp",
     imgSwitch: "remera1-2.webp",
+    offer: false,
   },
   {
     title: "Remera Dorte",
@@ -81,6 +86,7 @@ const products = [
     price: 2540,
     img: "remera2-1.webp",
     imgSwitch: "remera2-2.webp",
+    offer: true,
   },
   {
     title: "Remera Otti",
@@ -91,6 +97,7 @@ const products = [
     price: 2760,
     img: "remera3-1.webp",
     imgSwitch: "remera3-2.webp",
+    offer: false,
   },
   {
     title: "Remera Ashita",
@@ -101,6 +108,7 @@ const products = [
     price: 2240,
     img: "remera4-1.webp",
     imgSwitch: "remera4-2.webp",
+    offer: false,
   },
   {
     title: "Remera Shugo",
@@ -111,6 +119,7 @@ const products = [
     price: 2420,
     img: "remera5-1.webp",
     imgSwitch: "remera5-2.webp",
+    offer: false,
   },
   {
     title: "Remera Tamesis",
@@ -121,6 +130,7 @@ const products = [
     price: 2760,
     img: "remera6-1.webp",
     imgSwitch: "remera6-2.webp",
+    offer: true,
   },
   {
     title: "Pantalon Kobato",
@@ -131,6 +141,7 @@ const products = [
     price: 4100,
     img: "pantalon1-1.webp",
     imgSwitch: "pantalon1-2.webp",
+    offer: false,
   },
   {
     title: "Pantalon Deportivo Frizado Lewis",
@@ -141,6 +152,7 @@ const products = [
     price: 2910,
     img: "pantalon2-1.webp",
     imgSwitch: "pantalon2-2.webp",
+    offer: false,
   },
   {
     title: "Pantalon Rustico",
@@ -151,6 +163,7 @@ const products = [
     price: 3020,
     img: "pantalon3-1.webp",
     imgSwitch: "pantalon3-2.webp",
+    offer: true,
   },
   {
     title: "Pantalon Fiordland",
@@ -161,6 +174,7 @@ const products = [
     price: 3440,
     img: "pantalon4-1.webp",
     imgSwitch: "pantalon4-2.webp",
+    offer: false,
   },
   {
     title: "Campera Naruto",
@@ -171,6 +185,7 @@ const products = [
     price: 5090,
     img: "campera1-1.webp",
     imgSwitch: "campera1-2.webp",
+    offer: false,
   },
   {
     title: "Campera Deportivo Baudo",
@@ -181,6 +196,7 @@ const products = [
     price: 5270,
     img: "campera2-1.webp",
     imgSwitch: "campera2-2.webp",
+    offer: true,
   },
   {
     title: "Musculosa Marcel",
@@ -191,6 +207,7 @@ const products = [
     price: 2440,
     img: "musculosa1-1.webp",
     imgSwitch: "musculosa1-2.webp",
+    offer: false,
   },
   {
     title: "Sudadera Stern",
@@ -201,6 +218,7 @@ const products = [
     price: 2280,
     img: "musculosa2-1.webp",
     imgSwitch: "musculosa2-2.webp",
+    offer: true,
   },
   {
     title: "Musculosa Sora",
@@ -211,6 +229,7 @@ const products = [
     price: 2180,
     img: "musculosa3-1.webp",
     imgSwitch: "musculosa3-2.webp",
+    offer: true,
   },
 ];
 
@@ -219,6 +238,7 @@ const products = [
 const init = function () {
   hideAllSection();
   renderAllProducts(products);
+  renderOfertas();
   homeSection.style.display = "block";
 };
 
@@ -348,6 +368,68 @@ const renderProducts = function (e) {
     productosSection.insertAdjacentHTML("beforeend", html);
     contenedorProductos = document.querySelector("#contenedor--productos");
   }
+};
+
+const renderOfertas = function () {
+  let html = `
+  <!-- Products Cards -->
+  <div class="container-fluid" id="contenedor--ofertas">
+    <div class="row">
+      <!-- Card -->
+      `;
+
+  products
+    .filter((element) => element.offer)
+    .forEach((element) => {
+      html += `
+
+    <div class="my-4 col-12 pt-2 col-md-6 col-lg-4 tarjeta">
+    <div class="card">
+      <div class="">
+        <img
+          class="img w-100 img--card img--card--${element.type}"
+          src="./resources/images/${element.img}"
+          alt="Sample"
+        />
+        <div class="mask rgba-black-slight"></div>
+      </div>
+
+      <div class="card-body text-center">
+        <h5>${element.title}</h5>
+        <p class="small text-muted text-uppercase mb-2">${element.type}</p>
+        <p class="card-text description ">
+        ${element.description}
+        </p>
+        <hr />
+        <h6 class="mb-3">
+          <span class="text-red">$${element.price}</span>
+        </h6>
+
+        <button
+          type="button"
+          class="btn btn-primary btn mr-1 mb-2 btn-block"
+          data-toggle="modal"
+          data-target="#exampleModalCenter"
+        >
+          Comprar
+        </button>
+      </div>
+    </div>
+  </div>
+
+    `;
+    });
+
+  html += `
+      </div>
+      </div>
+    </div>
+  
+  `;
+
+  ofertasSection.insertAdjacentHTML("beforeend", html);
+
+  contenedorOfertas = document.querySelector("#contenedor--ofertas");
 };
 
 //Nav Funcitons
