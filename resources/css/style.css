@@ -38,14 +38,14 @@ body {
   object-fit: cover;
 }
 
+.img--card--buzo {
+  object-position: 0% 55%;
+}
+
 .img--home {
   height: 100%;
   object-fit: cover;
   object-position: 0% 50%;
-}
-
-.img--card--buzo {
-  object-position: 0% 55%;
 }
 
 .tarjeta {

@@ -9,9 +9,10 @@ const botonesPrendas = document.querySelector(".botones--prendas");
 
 // Others
 const emailField = document.querySelector("#InputEmail");
-const passwordField = document.querySelector("#InputPassword");
+const messaggeField = document.querySelector("#InputMessagge");
 const logInForm = document.querySelector("#logInForm");
 const submitFormButton = document.querySelector(".submit--button");
+const submitFormButton2 = document.querySelector(".submit--button2");
 const imagen = document.querySelector(".imagen--banner");
 
 //Section Elements
@@ -235,13 +236,7 @@ const products = [
 
 //Functions
 
-const init = function () {
-  hideAllSection();
-  renderAllProducts(products);
-  renderOfertas();
-  homeSection.style.display = "block";
-};
-
+// Inicializacion
 const renderAllProducts = function () {
   let html = `
   <!-- Products Cards -->
@@ -432,6 +427,13 @@ const renderOfertas = function () {
   contenedorOfertas = document.querySelector("#contenedor--ofertas");
 };
 
+const init = function () {
+  hideAllSection();
+  renderAllProducts(products);
+  renderOfertas();
+  homeSection.style.display = "block";
+};
+
 //Nav Funcitons
 const renderSection = function (e) {
   e.preventDefault();
@@ -451,21 +453,21 @@ const deleteProducts = function () {
 };
 
 //Form Validation
-const validateData = function (e) {
-  e.preventDefault();
+const validateData = function () {
+  console.log(emailField.value != null && messaggeField.value != null);
 
-  if (emailField.value && passwordField.value) {
+  if (emailField.value && messaggeField.value) {
     return true;
   } else {
     return false;
   }
 };
 
-const buttonAvailable = function (e) {
+const buttonAvailable = function () {
   if (validateData()) {
-    submitFormButton.classList.remove("disabled");
+    submitFormButton2.classList.remove("disabled");
   } else {
-    submitFormButton.classList.add("disabled");
+    submitFormButton2.classList.add("disabled");
   }
 };
 
@@ -481,8 +483,8 @@ const hideAllSection = function () {
 navBarContainer.addEventListener("click", renderSection);
 
 //Form Event Listener
-submitFormButton.addEventListener("click", validateData);
 logInForm.addEventListener("keydown", buttonAvailable);
+//logInForm.addEventListener("keydown", (e) => {e.sub});
 
 botonesPrendas.addEventListener("click", renderProducts);
 
