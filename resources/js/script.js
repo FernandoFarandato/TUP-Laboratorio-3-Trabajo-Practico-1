@@ -503,6 +503,8 @@ const submitContactForm = function (e) {
     submitModal.style.display = "block";
     submitFormButtonContact.classList.add("disabled");
     clearInputs();
+  } else {
+    e.preventDefault();
   }
 };
 
@@ -529,6 +531,8 @@ const submitCustomForm = function (e) {
     submitModal.style.display = "block";
     submitFormButtonCoustom.classList.add("disabled");
     clearInputs();
+  } else {
+    e.preventDefault();
   }
 };
 
