@@ -499,6 +499,7 @@ const buttonAvailableContact = function () {
 
 const submitContactForm = function (e) {
   if (validateDataContact()) {
+    e.preventDefault();
     submitModal.style.display = "block";
     submitFormButtonContact.classList.add("disabled");
     clearInputs();
@@ -524,7 +525,9 @@ const buttonAvailableCustom = function () {
 
 const submitCustomForm = function (e) {
   if (validateDataCustom()) {
+    e.preventDefault();
     submitModal.style.display = "block";
+    submitFormButtonCoustom.classList.add("disabled");
     clearInputs();
   }
 };
