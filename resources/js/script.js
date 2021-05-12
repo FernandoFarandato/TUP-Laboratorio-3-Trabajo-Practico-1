@@ -1,31 +1,43 @@
 /** @format */
 "use strict";
 
+// * Document Elemets
+
 //Nav Bar Elements
 const navBarContainer = document.querySelector(".navbar");
 
-//Products Section
+//Products Section / Filter
 const botonesPrendas = document.querySelector(".botones--prendas");
 
-// Others
-const emailField = document.querySelector("#InputEmail");
-const messaggeField = document.querySelector("#InputMessagge");
-const logInForm = document.querySelector("#logInForm");
-const submitFormButton = document.querySelector(".submit--button");
-const submitFormButton2 = document.querySelector(".submit--button2");
-const imagen = document.querySelector(".imagen--banner");
+// Contact Form
+const contactFrom = document.querySelector("#contactFrom");
+const emailFieldContact = document.querySelector("#InputEmail");
+const messaggeFieldContact = document.querySelector("#InputMessagge");
+const submitFormButtonContact = document.querySelector(
+  "#submitFormButtonContact"
+);
+
+//Custom Products Form
+const customForm = document.querySelector("#customForm");
+const emailFieldCustom = document.querySelector("#emailFieldCustom");
+const messaggeFieldCustom = document.querySelector("#messaggeFieldCustom");
+const submitFormButton = document.querySelector("#submitFormButtonCustom");
 
 //Section Elements
 const homeSection = document.querySelector(".home");
 const ofertasSection = document.querySelector(".ofertas");
 const solicitarProudctosSection = document.querySelector(".solicitarProudctos");
 const productosSection = document.querySelector(".productos");
+const contactoSection = document.querySelector(".contacto");
+
+//Modals
+const submitModal = document.querySelector("#submitModal");
+
+//Cards Containers
 let contenedorProductos;
 let contenedorOfertas;
 
-const contactoSection = document.querySelector(".contacto");
-
-const section = [
+const sections = [
   homeSection,
   ofertasSection,
   solicitarProudctosSection,
@@ -234,9 +246,10 @@ const products = [
   },
 ];
 
-//Functions
+// * Functions
 
 // Inicializacion
+
 const renderAllProducts = function () {
   let html = `
   <!-- Products Cards -->
@@ -298,6 +311,7 @@ const renderAllProducts = function () {
 };
 
 const renderProducts = function (e) {
+  //Filter Render
   if (e.target.id == "todo") renderAllProducts();
 
   if (e.target.tagName == "BUTTON") {
@@ -427,10 +441,24 @@ const renderOfertas = function () {
   contenedorOfertas = document.querySelector("#contenedor--ofertas");
 };
 
+const clearInputs = function () {
+  emailFieldContact.value = "";
+  messaggeFieldContact.value = "";
+  emailFieldCustom.value = "";
+  messaggeFieldCustom.value = "";
+};
+
+const hideAllSection = function () {
+  sections.forEach((element) => {
+    element.style.display = "none";
+  });
+};
+
 const init = function () {
   hideAllSection();
   renderAllProducts(products);
   renderOfertas();
+  clearInputs();
   homeSection.style.display = "block";
 };
 
@@ -448,44 +476,80 @@ const renderSection = function (e) {
 };
 
 const deleteProducts = function () {
-  console.log(contenedorProductos);
   contenedorProductos.remove();
 };
 
 //Form Validation
-const validateData = function () {
-  console.log(emailField.value != null && messaggeField.value != null);
-
-  if (emailField.value && messaggeField.value) {
+const validateDataContact = function () {
+  if (emailFieldContact.value && messaggeFieldContact.value) {
     return true;
   } else {
     return false;
   }
 };
 
-const buttonAvailable = function () {
-  if (validateData()) {
-    submitFormButton2.classList.remove("disabled");
-  } else {
-    submitFormButton2.classList.add("disabled");
+const buttonAvailableContact = function () {
+  if (validateDataContact()) {
+    submitFormButtonContact.classList.remove("disabled");
+  }
+  if (!validateDataContact()) {
+    submitFormButtonContact.classList.add("disabled");
   }
 };
 
-const hideAllSection = function () {
-  section.forEach((element) => {
-    element.style.display = "none";
-  });
+const submitContactForm = function (e) {
+  if (validateDataContact()) {
+    submitModal.style.display = "block";
+    submitFormButtonContact.classList.add("disabled");
+    clearInputs();
+  }
 };
 
-//Event Listener
+const validateDataCustom = function () {
+  if (emailFieldCustom.value && messaggeFieldCustom.value) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const buttonAvailableCustom = function () {
+  if (validateDataCustom()) {
+    submitFormButtonCustom.classList.remove("disabled");
+  }
+  if (!validateDataCustom()) {
+    submitFormButtonCustom.classList.add("disabled");
+  }
+};
+
+const submitCustomForm = function (e) {
+  if (validateDataCustom()) {
+    submitModal.style.display = "block";
+    clearInputs();
+  }
+};
+
+// * Event Listeners
 
 //Nav Bar Event Listener
 navBarContainer.addEventListener("click", renderSection);
 
-//Form Event Listener
-logInForm.addEventListener("keydown", buttonAvailable);
-//logInForm.addEventListener("keydown", (e) => {e.sub});
+//Form Contact Event Listener
+contactFrom.addEventListener("keydown", buttonAvailableContact);
+contactFrom.addEventListener("submit", submitContactForm);
 
+//Form Custom Event Listener
+customForm.addEventListener("keydown", buttonAvailableCustom);
+customForm.addEventListener("submit", submitCustomForm);
+
+//Filter Products
 botonesPrendas.addEventListener("click", renderProducts);
 
+// ! BUG-FIX Close Modal
+
+document.querySelector("#closeModal").addEventListener("click", () => {
+  submitModal.style.display = "none";
+});
+
+// * Initialize Functions
 init();

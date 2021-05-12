@@ -97,13 +97,13 @@
         </div>
         <!-- Form -->
         <div class="container">
-          <form class="m-4">
+          <form class="m-4" id="customForm">
             <div class="form-group">
               <label for="exampleFormControlInput1">Correo Electronico</label>
               <input
                 type="email"
                 class="form-control"
-                id="exampleFormControlInput1"
+                id="emailFieldCustom"
                 placeholder="name@example.com"
               />
             </div>
@@ -135,16 +135,15 @@
               >
               <textarea
                 class="form-control"
-                id="exampleFormControlTextarea1"
+                id="messaggeFieldCustom"
                 rows="3"
               ></textarea>
             </div>
             <button
-              class="btn btn-primary submit--button disabled"
-              data-toggle="modal"
-              data-target="#submitModal"
+              class="btn btn-primary disabled"
+              id="submitFormButtonCustom"
             >
-              Submit
+              Enviar
             </button>
           </form>
         </div>
@@ -207,7 +206,7 @@
         <!-- Form -->
         <div class="container-fluid m-0 p-0 pagina">
           <div class="container mt-4">
-            <form id="logInForm">
+            <form id="contactFrom">
               <div class="mb-3">
                 <label for="InputEmail" class="form-label"
                   >Correo Electronico</label
@@ -230,8 +229,7 @@
 
               <button
                 class="btn btn-primary submit--button2 disabled"
-                data-toggle="modal"
-                data-target="#submitModal"
+                id="submitFormButtonContact"
               >
                 Submit
               </button>
@@ -273,7 +271,7 @@
 
     <!-- Submit Modal -->
     <div
-      class="modal fade"
+      class="modal fade show"
       id="submitModal"
       tabindex="-1"
       role="dialog"
@@ -287,6 +285,7 @@
             <button
               type="button"
               class="close"
+              id="closeModal"
               data-dismiss="modal"
               aria-label="Close"
             >
