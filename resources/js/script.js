@@ -21,7 +21,9 @@ const submitFormButtonContact = document.querySelector(
 const customForm = document.querySelector("#customForm");
 const emailFieldCustom = document.querySelector("#emailFieldCustom");
 const messaggeFieldCustom = document.querySelector("#messaggeFieldCustom");
-const submitFormButton = document.querySelector("#submitFormButtonCustom");
+const submitFormButtonCustom = document.querySelector(
+  "#submitFormButtonCustom"
+);
 
 //Section Elements
 const homeSection = document.querySelector(".home");
@@ -529,7 +531,7 @@ const submitCustomForm = function (e) {
   if (validateDataCustom()) {
     e.preventDefault();
     submitModal.style.display = "block";
-    submitFormButtonCoustom.classList.add("disabled");
+    submitFormButtonCustom.classList.add("disabled");
     clearInputs();
   } else {
     e.preventDefault();
@@ -553,7 +555,6 @@ customForm.addEventListener("submit", submitCustomForm);
 botonesPrendas.addEventListener("click", renderProducts);
 
 // ! BUG-FIX Close Modal
-
 document.querySelector("#closeModal").addEventListener("click", () => {
   submitModal.style.display = "none";
 });
