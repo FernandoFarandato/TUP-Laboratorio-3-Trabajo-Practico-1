@@ -56,7 +56,7 @@ const products = [
     type: "buzo",
     price: 5700,
     img: "buzo1-1.webp",
-    imgSwitch: "buzo1-1.webp",
+    imgSwitch: "buzo1-2.webp",
     offer: false,
   },
   {
@@ -271,7 +271,6 @@ const renderAllProducts = function () {
           src="./resources/images/${element.img}"
           alt="Sample"
         />
-        <div class="mask rgba-black-slight"></div>
       </div>
 
       <div class="card-body text-center">
@@ -458,7 +457,7 @@ const hideAllSection = function () {
 
 const init = function () {
   hideAllSection();
-  renderAllProducts(products);
+  renderAllProducts();
   renderOfertas();
   clearInputs();
   homeSection.style.display = "block";
@@ -475,10 +474,6 @@ const renderSection = function (e) {
     hideAllSection();
     sectionToRender.style.display = "block";
   }
-};
-
-const deleteProducts = function () {
-  contenedorProductos.remove();
 };
 
 //Form Validation
@@ -536,6 +531,11 @@ const submitCustomForm = function (e) {
   } else {
     e.preventDefault();
   }
+};
+
+// Others
+const deleteProducts = function () {
+  contenedorProductos.remove();
 };
 
 // * Event Listeners
